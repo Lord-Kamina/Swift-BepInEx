@@ -1,7 +1,7 @@
 import XCTest
 import Foundation
 import MachO.loader
-@testable import Swift_BepInEx // Gives access to internal types/functions
+@testable import Swift_BepInEx_Launcher // Gives access to internal types/functions
 
 // MARK: - Main Test Class Setup
 final class BepInExLauncherTests: XCTestCase {
@@ -103,7 +103,7 @@ final class BepInExLauncherTests: XCTestCase {
 		// Should correctly identify a standalone executable file.
 		let execURL = try createFakeBinary(named: "my_cli_game", type: .x86_64, at: self.testDirectoryURL)
 
-		let result : Swift_BepInEx.ExecutableToRun = try getExecutableToRun(from: execURL.path, relativeTo: self.testDirectoryURL.path)
+		let result : Swift_BepInEx_Launcher.ExecutableToRun = try getExecutableToRun(from: execURL.path, relativeTo: self.testDirectoryURL.path)
 
 		XCTAssertFalse(result.isApplication)
 		XCTAssertTrue(result.isFile)

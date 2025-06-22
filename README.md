@@ -1,8 +1,4 @@
-![alt text](https://img.shields.io/badge/License-MIT-yellow.svg)
-
-![alt text](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
-
-![alt text](https://img.shields.io/badge/Swift-5.9+-orange.svg)
+![alt text](https://img.shields.io/badge/License-MIT-yellow.svg) ![alt text](https://img.shields.io/badge/platform-macOS-lightgrey.svg) ![alt text](https://img.shields.io/badge/Swift-5.9+-orange.svg) [![Build, Test, and Release](https://github.com/Lord-Kamina/Swift-BepInEx/actions/workflows/ci.yml/badge.svg)](https://github.com/Lord-Kamina/Swift-BepInEx/actions/workflows/ci.yml)
 
 # Swift-BepInEx-Launcher
 #### © 2025 - Gregorio Litenstein Goldzweig
