@@ -6,7 +6,7 @@ import System
 @main
 struct BepInExLauncher: ParsableCommand {
     static var configuration = CommandConfiguration(
-        commandName: "bepinex_launcher",
+        commandName: "Swift-BepInEx-Launcher",
         abstract: "A Swift reimplementation of the BepInEx launcher script for macOS.",
         // This allows all un-parsed arguments to be collected.
         subcommands: [],
