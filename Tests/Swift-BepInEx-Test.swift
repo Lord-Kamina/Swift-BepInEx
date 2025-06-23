@@ -231,7 +231,7 @@ final class BepInExLauncherTests: XCTestCase {
 		// Assert that all other properties have their correct default values.
 		XCTAssertEqual(command.executableName, "/path/to/game")
 		XCTAssertEqual(command.inBaseDir, FileManager.default.currentDirectoryPath)
-		XCTAssertEqual(command.doorstop, true)
+		XCTAssertEqual(command.enableDoorstop, true)
 		XCTAssertEqual(command.doorstopIgnoreDisabled, false)
 		XCTAssertEqual(command.monoDebug, false)
 		XCTAssertEqual(command.monoDebugSuspend, false)
@@ -252,7 +252,7 @@ final class BepInExLauncherTests: XCTestCase {
 		]
 		let command = try BepInExLauncher.parse(args)
 
-		XCTAssertEqual(command.doorstop, false)
+		XCTAssertEqual(command.enableDoorstop, false)
 		XCTAssertEqual(command.monoDebug, true)
 		XCTAssertEqual(command.doorstopIgnoreDisabled, true)
 	}

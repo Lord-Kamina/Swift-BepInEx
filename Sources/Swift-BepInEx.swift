@@ -21,8 +21,8 @@ struct BepInExLauncher: ParsableCommand {
 	//	@Flag(name: [.long, .customLong("startServer")], help: "When set to true, launches a server instead of a game.")
 	//	var runServer: Bool = false
 
-    @Flag(name: .long, inversion: .prefixedEnableDisable, exclusivity: .exclusive, help: "Doorstop injection.")
-    var doorstop: Bool = true
+	@Option(name: .long, help: "Doorstop injection.")
+    var enableDoorstop: Bool = true
 
 	@Flag(name: [.long, .customLong("ignoreDisable")], help: "If true, the DOORSTOP_DISABLE environment variable is ignored.")
     var doorstopIgnoreDisabled: Bool = false
@@ -57,7 +57,7 @@ struct BepInExLauncher: ParsableCommand {
 	@Option(name: .long, help: "Override path to boot.config")
 	var bootConfig: String?
 
-	@Option(name: [.long, .customLong("doorstopAssembly")], help: "Path to the .NET assembly to preload.")
+	@Option(name: [.long, .customLong("doorstopAssembly"), .customLong("doorstop-target")], help: "Path to the .NET assembly to preload.")
 	var targetAssembly: String = "BepInEx/core/BepInEx.Preloader.dll"
 
 	@Option(name: [.long, .customLong("r2Profile")], help: "Path to the .NET assembly to preload.")
@@ -84,7 +84,7 @@ struct BepInExLauncher: ParsableCommand {
 			}
 		}
 		targetAssembly = try targetAssembly.asAbsoluteCanonicalPath(relativeTo: profileDir!)
-		try setEnv("DOORSTOP_ENABLED", doorstop ? "1" : "0")
+		try setEnv("DOORSTOP_ENABLED", enableDoorstop ? "1" : "0")
 		try setEnv("DOORSTOP_TARGET_ASSEMBLY", targetAssembly)
 		try setEnv("DOORSTOP_IGNORE_DISABLED_ENV", doorstopIgnoreDisabled ? "1" : "0")
 		try setEnv("DOORSTOP_MONO_DEBUG_ENABLED", monoDebug ? "1" : "0")
